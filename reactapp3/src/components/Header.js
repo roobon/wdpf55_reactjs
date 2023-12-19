@@ -72,6 +72,7 @@ export default function Header() {
                             </div>
                             <Link to="contact.html" className="nav-item nav-link">Contact</Link>
                             <Link to="/users" className="nav-item nav-link">Users</Link>
+                            <Link to="/registration" className="nav-item nav-link">User Registration</Link>
                             <Link to="/cart"><i className='bi bi-cart nav-item nav-link'> </i></Link>
                         </div>
                     </div>

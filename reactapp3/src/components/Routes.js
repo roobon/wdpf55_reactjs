@@ -10,6 +10,7 @@ import UseContext from '../pages/UseContext'
 import Users from '../pages/Users'
 import UserInsert from '../pages/UserInsert'
 import Cart from '../pages/Cart'
+import UserRegistration from '../pages/UserRegistration'
 
 
 
@@ -21,6 +22,7 @@ export default function Main() {
             <Route index element={<Home />}></Route>
             <Route path='/about' element={<About/>}></Route>
             <Route path='/cart' element={<Cart/>}></Route>
+            <Route path='/registration' element={<UserRegistration/>}></Route>
             <Route path='/usestate' element={<UseState/>}></Route>
             <Route path='/useeffect' element={<UseEffect/>}></Route>
             <Route path='/usecontext' element={<UseContext/>}></Route>
