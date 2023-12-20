@@ -3,7 +3,9 @@ import React, { useState } from 'react'
 
 
 export default function UserRegistration() {
-    const [formData, SetFormData] = useState({});
+    const [formData, SetFormData] = useState({
+       
+    });
 
     const changeHandler = (e)=>{
         const name = e.target.name;
@@ -11,17 +13,17 @@ export default function UserRegistration() {
        
         SetFormData((val)=>({...val, [name]:value})) 
     }
-    //console.log(formData);
+    console.log(formData);
    
     const submitHandler = (e)=>{
         e.preventDefault();
 
-        if( formData.password !=  formData.cofirmpassword){
+        if( formData.password !=  formData.confirmpassword){
             alert("Password Doesn't match");
         } else {
             axios.get("http://localhost:8080/registration", formData).then(
                 (res)=>{
-                   alert(res.data.msg)
+                   console.log(res.data.msg)
                 }
             )
         }
@@ -41,18 +43,18 @@ export default function UserRegistration() {
                     
                     <div className="col-lg-12 wow fadeInUp" data-wow-delay=".5s">
 						
-                        <form className="rounded contact-form" onSubmit={submitHandler}>
+                        <form method='post' className="rounded contact-form" onSubmit={submitHandler}>
                             <div className="mb-4">
-                                <input type="text" className="form-control p-3" name='name' onChange={changeHandler} placeholder="Your Name"/>
+                                <input type="text" className="form-control p-3" name='fname' onChange={changeHandler} placeholder="Your Name"/>
                             </div>
                             <div className="mb-4">
-                                <input type="email" className="form-control p-3" name='email' onChange={changeHandler} placeholder="Your Email"/>
+                                <input type="email" className="form-control p-3" name='email'  onChange={changeHandler} placeholder="Your Email"/>
                             </div>
                             <div className="mb-4">
-                                <input type="text" className="form-control p-3" name='password' onChange={changeHandler}placeholder="Password"/>
+                                <input type="text" className="form-control p-3" name='password' onChange={changeHandler} placeholder="Password"/>
                             </div>
                             <div className="mb-4">
-                                <input type="text" className="form-control p-3" name='cofirmpassword' onChange={changeHandler}placeholder="Confirm Password"/>
+                                <input type="text" className="form-control p-3" name='confirmpassword' onChange={changeHandler} placeholder="Confirm Password"/>
                             </div>
                            
                             <button className="btn btn-primary border-0 py-3 px-4 rounded-pill" type="submit">REGISTRATION</button>
